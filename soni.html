@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Am So Sorry, Soni ❤️</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        rose: {
+                            50: '#fff1f2',
+                            100: '#ffe4e6',
+                            200: '#fecdd3',
+                            300: '#fda4af',
+                            400: '#fb7185',
+                            500: '#f43f5e',
+                            600: '#e11d48',
+                            700: '#be123c',
+                            800: '#9f1239',
+                            900: '#881337',
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'slide-up': 'slideUp 1s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(40px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            scroll-behavior: smooth;
+            background-color: #fff1f2;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(225, 29, 72, 0.1);
+        }
+
+        /* Floating Hearts Animation Background */
+        .heart-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .heart-shape {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: rgba(251, 113, 133, 0.2);
+            transform: rotate(45deg);
+            animation: floatUp 10s linear infinite;
+        }
+
+        .heart-shape::before,
+        .heart-shape::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: inherit;
+            border-radius: 50%;
+        }
+
+        .heart-shape::before { top: -10px; left: 0; }
+        .heart-shape::after { top: 0; left: -10px; }
+
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) rotate(45deg) scale(0.5); opacity: 0; }
+            20% { opacity: 1; }
+            80% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(45deg) scale(1.5); opacity: 0; }
+        }
+
+        /* Progress Bar Animation */
+        .progress-bar-fill {
+            transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* No Button Evasion */
+        #btn-no {
+            position: relative;
+            transition: all 0.2s ease;
+        }
+
+        .celebration-heart {
+            position: fixed;
+            color: #e11d48;
+            font-size: 24px;
+            pointer-events: none;
+            z-index: 1000;
+            animation: fallDown 3s linear forwards;
+        }
+
+        @keyframes fallDown {
+            0% { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body class="text-gray-800 antialiased font-sans overflow-x-hidden">
+
+    <!-- Background Hearts -->
+    <div class="heart-bg" id="heart-container"></div>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center p-6 text-center">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1518199266791-5375a83164ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Romantic background" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-rose-900/60 mix-blend-multiply"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-rose-50"></div>
+        </div>
+
+        <div class="relative z-10 max-w-4xl mx-auto glass-card rounded-3xl p-10 md:p-16 animate-slide-up">
+            <i class="fa-solid fa-heart text-5xl text-rose-500 mb-6 animate-pulse-slow"></i>
+            <h1 class="font-serif text-5xl md:text-7xl font-bold text-gray-900 mb-4">
+                I Am So Sorry, <span class="text-rose-600">Soni</span>.
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-700 mb-8 font-light">
+                I said some incredibly stupid things, and I need to make it right.
+            </p>
+            <a href="#confession" class="inline-flex items-center justify-center px-8 py-4 text-base font-medium text-white bg-rose-500 hover:bg-rose-600 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                Hear Me Out <i class="fa-solid fa-arrow-down ml-2"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- The Confession Section -->
+    <section id="confession" class="py-20 px-6 max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="font-serif text-4xl md:text-5xl font-bold text-gray-900 mb-4">Where I Went Wrong</h2>
+            <div class="w-24 h-1 bg-rose-400 mx-auto rounded-full"></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="order-2 md:order-1 space-y-6">
+                <div class="bg-white rounded-2xl p-8 shadow-lg border-l-4 border-gray-800 transform transition hover:-translate-y-1">
+                    <div class="flex items-start gap-4">
+                        <div class="bg-gray-100 p-3 rounded-full text-gray-600">
+                            <i class="fa-solid fa-comment-slash text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">The Stupid Thing I Said:</h3>
+                            <p class="text-gray-600 italic">"You don't sound romantic, I don't get romantic vibes from you, and you are boring."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-rose-50 rounded-2xl p-8 shadow-lg border-l-4 border-rose-500 transform transition hover:-translate-y-1">
+                    <div class="flex items-start gap-4">
+                        <div class="bg-rose-100 p-3 rounded-full text-rose-600">
+                            <i class="fa-solid fa-lightbulb text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-rose-900 mb-2">The Absolute Truth:</h3>
+                            <p class="text-rose-800 font-medium">I was completely, utterly, and undeniably <span class="font-bold underline">WRONG</span>. Soni, you are the most romantic, vibrant, and amazing person in my life.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="order-1 md:order-2 relative">
+                <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Apology Flowers" class="rounded-3xl shadow-2xl w-full h-auto object-cover transform -rotate-3 hover:rotate-0 transition-all duration-500" />
+                <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-2xl shadow-xl animate-float">
+                    <p class="font-serif font-bold text-rose-600 text-lg">My brain wasn't working 🧠🚫</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Infographic Section -->
+    <section class="py-20 bg-white relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-rose-200 to-transparent"></div>
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="font-serif text-4xl md:text-5xl font-bold text-gray-900 mb-4">Let's Look at the Actual Data</h2>
+                <p class="text-gray-600 text-lg">I've run the numbers, and the results are conclusive.</p>
+                <div class="w-24 h-1 bg-rose-400 mx-auto mt-6 rounded-full"></div>
+            </div>
+
+            <!-- Stats Container -->
+            <div class="space-y-10">
+                <!-- Stat 1 -->
+                <div>
+                    <div class="flex justify-between items-end mb-2">
+                        <span class="text-lg font-bold text-gray-800">Soni's Romantic Energy Level</span>
+                        <span class="text-rose-600 font-bold text-xl">1000%</span>
+                    </div>
+                    <div class="w-full bg-rose-100 rounded-full h-6 shadow-inner overflow-hidden">
+                        <div class="bg-gradient-to-r from-rose-400 to-rose-600 h-6 rounded-full progress-bar-fill w-0" data-width="100%"></div>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-2"><i class="fa-solid fa-check-circle text-green-500 mr-1"></i> Fact-checked: She is naturally the sweetest and most caring.</p>
+                </div>
+
+                <!-- Stat 2 -->
+                <div>
+                    <div class="flex justify-between items-end mb-2">
+                        <span class="text-lg font-bold text-gray-800">How "Boring" Soni Actually Is</span>
+                        <span class="text-blue-600 font-bold text-xl">0%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-6 shadow-inner overflow-hidden">
+                        <div class="bg-blue-500 h-6 rounded-full progress-bar-fill w-0" data-width="0%"></div>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-2"><i class="fa-solid fa-ban text-red-500 mr-1"></i> Error 404: Boringness not found in Soni's DNA.</p>
+                </div>
+
+                <!-- Stat 3 -->
+                <div>
+                    <div class="flex justify-between items-end mb-2">
+                        <span class="text-lg font-bold text-gray-800">My Level of Regret for Saying That</span>
+                        <span class="text-purple-600 font-bold text-xl">Beyond Measure</span>
+                    </div>
+                    <div class="w-full bg-purple-100 rounded-full h-6 shadow-inner overflow-hidden">
+                        <div class="bg-gradient-to-r from-purple-500 to-purple-700 h-6 rounded-full progress-bar-fill w-0 flex items-center justify-end pr-4 text-white text-xs" data-width="100%">
+                            <i class="fa-solid fa-infinity"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fun Fact Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
+                <div class="bg-rose-50 p-6 rounded-2xl text-center shadow-md hover:shadow-lg transition">
+                    <div class="w-16 h-16 bg-rose-200 rounded-full flex items-center justify-center mx-auto mb-4 text-rose-600 text-2xl">
+                        <i class="fa-solid fa-crown"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-900 mb-2">The Best Girlfriend</h4>
+                    <p class="text-sm text-gray-600">Undisputed champion of holding my heart.</p>
+                </div>
+                <div class="bg-rose-50 p-6 rounded-2xl text-center shadow-md hover:shadow-lg transition">
+                    <div class="w-16 h-16 bg-rose-200 rounded-full flex items-center justify-center mx-auto mb-4 text-rose-600 text-2xl">
+                        <i class="fa-solid fa-fire-flame-curved"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-900 mb-2">Not Boring</h4>
+                    <p class="text-sm text-gray-600">You bring a spark and excitement to my life every single day.</p>
+                </div>
+                <div class="bg-rose-50 p-6 rounded-2xl text-center shadow-md hover:shadow-lg transition">
+                    <div class="w-16 h-16 bg-rose-200 rounded-full flex items-center justify-center mx-auto mb-4 text-rose-600 text-2xl">
+                        <i class="fa-solid fa-hand-holding-heart"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-900 mb-2">Deeply Romantic</h4>
+                    <p class="text-sm text-gray-600">The way you care, love, and exist is the pure definition of romance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Promise Section -->
+    <section class="py-20 px-6 relative">
+        <div class="max-w-4xl mx-auto glass-card rounded-3xl p-10 md:p-16 text-center relative z-10">
+            <i class="fa-solid fa-quote-left text-4xl text-rose-300 mb-6 opacity-50"></i>
+            <h2 class="font-serif text-3xl md:text-5xl font-bold text-gray-900 mb-8">My Promise to You</h2>
+            
+            <p class="text-lg md:text-xl text-gray-700 leading-relaxed mb-6">
+                Soni, I am truly sorry for making you sad. Sometimes I speak without thinking, but I never want to be the reason you doubt yourself or us. You give me the best romantic vibes, and life with you is the furthest thing from boring. 
+            </p>
+            <p class="text-lg md:text-xl text-gray-700 leading-relaxed mb-8 font-medium">
+                I understand that I was wrong. I promise to appreciate your romance, celebrate your energy, and <span class="text-rose-600 font-bold">never</span> say such thoughtless things again. You are my everything.
+            </p>
+            
+            <img src="https://images.unsplash.com/photo-1494774157365-9e04c6720e47?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Holding hands" class="w-48 h-48 object-cover rounded-full mx-auto border-4 border-white shadow-xl mb-6" />
+            
+            <p class="font-serif text-2xl font-bold text-rose-600">You are the best, Soni.</p>
+        </div>
+    </section>
+
+    <!-- Interactive Forgiveness Section -->
+    <section class="py-24 bg-rose-600 text-white text-center relative overflow-hidden" id="forgive-section">
+        <div class="max-w-2xl mx-auto relative z-10 px-6">
+            <h2 class="font-serif text-4xl md:text-5xl font-bold mb-8">Can you find it in your beautiful heart to forgive me?</h2>
+            
+            <div id="action-buttons" class="flex flex-col sm:flex-row justify-center items-center gap-6 h-32">
+                <button id="btn-yes" class="px-10 py-4 bg-white text-rose-600 font-bold text-xl rounded-full shadow-xl hover:bg-rose-50 hover:scale-105 transition-transform duration-300 z-20">
+                    Yes, I forgive you ❤️
+                </button>
+                <button id="btn-no" class="px-10 py-4 bg-rose-800 text-white font-bold text-xl rounded-full shadow-lg border border-rose-700 z-20">
+                    No, I'm still mad
+                </button>
+            </div>
+
+            <div id="success-message" class="hidden mt-8">
+                <h3 class="font-serif text-4xl font-bold text-white mb-4 animate-bounce">Thank you, my love!</h3>
+                <p class="text-xl text-rose-100">I love you more than words can say. I'll make it up to you! 💖</p>
+            </div>
+        </div>
+        
+        <!-- Background decorative elements -->
+        <div class="absolute top-0 left-0 w-64 h-64 bg-rose-500 rounded-full mix-blend-multiply filter blur-3xl opacity-50 -translate-x-1/2 -translate-y-1/2"></div>
+        <div class="absolute bottom-0 right-0 w-80 h-80 bg-rose-700 rounded-full mix-blend-multiply filter blur-3xl opacity-50 translate-x-1/3 translate-y-1/3"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-8 text-center">
+        <p>Made with sincere regret and infinite love for Soni.</p>
+    </footer>
+
+    <!-- JavaScript for Animations and Interactions -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Background Hearts Generation
+            const heartContainer = document.getElementById('heart-container');
+            const createBackgroundHeart = () => {
+                const heart = document.createElement('div');
+                heart.classList.add('heart-shape');
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 5 + 5) + 's';
+                heart.style.opacity = Math.random() * 0.5;
+                heartContainer.appendChild(heart);
+
+                setTimeout(() => {
+                    heart.remove();
+                }, 10000);
+            };
+
+            // Create initial batch
+            for(let i=0; i<15; i++) {
+                setTimeout(createBackgroundHeart, Math.random() * 3000);
+            }
+            setInterval(createBackgroundHeart, 800);
+
+            // Progress Bar Animation on Scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const bars = entry.target.querySelectorAll('.progress-bar-fill');
+                        bars.forEach(bar => {
+                            const width = bar.getAttribute('data-width');
+                            bar.style.width = width;
+                        });
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            const statsSection = document.querySelector('.bg-white.relative.overflow-hidden');
+            if(statsSection) observer.observe(statsSection);
+
+            // Interactive Buttons logic
+            const btnNo = document.getElementById('btn-no');
+            const btnYes = document.getElementById('btn-yes');
+            const actionButtons = document.getElementById('action-buttons');
+            const successMessage = document.getElementById('success-message');
+            const forgiveSection = document.getElementById('forgive-section');
+
+            // Make the "No" button run away
+            btnNo.addEventListener('mouseover', (e) => {
+                // Get viewport dimensions
+                const sectionRect = forgiveSection.getBoundingClientRect();
+                const btnRect = btnNo.getBoundingClientRect();
+                
+                // Calculate max safe positions within the section (avoiding overlap with YES)
+                const maxX = sectionRect.width - btnRect.width - 40;
+                const maxY = 150; // Keep it within the height of the button container area
+
+                // Generate random position
+                const randomX = Math.floor(Math.random() * maxX) - (maxX / 2);
+                const randomY = Math.floor(Math.random() * 100) - 50;
+
+                btnNo.style.transform = `translate(${randomX}px, ${randomY}px)`;
+            });
+
+            // Prevent clicking NO just in case they are fast
+            btnNo.addEventListener('click', (e) => {
+                e.preventDefault();
+                btnNo.innerText = "Nice try! Click Yes 😉";
+            });
+
+            // Handle "Yes" click Celebration
+            btnYes.addEventListener('click', () => {
+                btnNo.style.display = 'none';
+                btnYes.style.display = 'none';
+                successMessage.classList.remove('hidden');
+                
+                // Trigger Confetti/Hearts
+                createCelebration();
+            });
+
+            function createCelebration() {
+                const colors = ['#e11d48', '#fb7185', '#ffffff', '#fda4af'];
+                
+                for (let i = 0; i < 100; i++) {
+                    setTimeout(() => {
+                        const heart = document.createElement('i');
+                        heart.classList.add('fa-solid', 'fa-heart', 'celebration-heart');
+                        
+                        // Random properties
+                        heart.style.left = Math.random() * 100 + 'vw';
+                        heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+                        const size = Math.random() * 20 + 10;
+                        heart.style.fontSize = size + 'px';
+                        
+                        // Random animation duration
+                        heart.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                        
+                        document.body.appendChild(heart);
+                        
+                        // Clean up
+                        setTimeout(() => {
+                            heart.remove();
+                        }, 5000);
+                    }, i * 30); // Stagger the hearts
+                }
+            }
+        });
+    </script>
+</body>
+</html>
